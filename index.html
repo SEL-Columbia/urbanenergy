@@ -18,48 +18,30 @@
 
 	</script>
   <title>Total Annual Energy Consumption for New York City</title>
+  
+  <script type="text/javascript" src="main.js"></script>
   </head>
 <body>
-<div id="content-wrap">
-<h2>Total Annual Energy Consumption for New York City</h2>
-<div id='intro-map'></div>
-
-<p id="data-source">
-	Data Source: <a href="http://modi.mech.columbia.edu">Modi Research Group</a><br>
-	<a href="http://www.nyc.gov/html/dcp/html/bytes/applbyte.shtml">Bytes of the Big Apple</a><br><br>
-	</p>
-<div id="map-description">	
-	The map represents the annual building energy consumption at the block by block level and at the lot level( available when you zoom in further) for New York City, expressed in kilowatt hours per square meter. The data comes from a mathematical model based on statistics, not private information from utilities, to estimate the annual energy consumption values of buildings throughout the five boroughs and were able to break down what type of energy is being used, for which purpose and in what quantity.
-</div>	
-	<br><br>
-	<p id="credits">
-	<i>Map created by the <a href="http://modi.mech.columbia.edu">Modi Research Group</a> with data from Bytes of the Big Apple <a href="http://mapbox.com">MapBox</a></i>
+  <div id="content-wrap">
+    <h2>Total Annual Energy Consumption for New York City</h2>
+    <div id='intro-map'></div>
+    <p id="data-source">Data Source: <a href="http://modi.mech.columbia.edu">Modi Research Group</a><br>
+      <a href="http://www.nyc.gov/html/dcp/html/bytes/applbyte.shtml">Bytes of the Big Apple</a><br><br>
+    </p>
+    <div id="map-description">The map represents the annual building
+      energy consumption at the block by block level and at the lot
+      level( available when you zoom in further) for New York City,
+      expressed in kilowatt hours per square meter. The data comes
+      from a mathematical model based on statistics, not private
+      information from utilities, to estimate the annual energy
+      consumption values of buildings throughout the five boroughs and
+      were able to break down what type of energy is being used, for
+      which purpose and in what quantity.
+    </div>
+    <p id="credits">
+      <i>Map created by the <a href="http://modi.mech.columbia.edu">Modi Research Group</a> with data from Bytes of the Big Apple</i>
     </p
 </div>
-
-<script>
-var mm = com.modestmaps;
-//var url = 'http://tiles.mapbox.com/mapbox/api/Tileset/geography-class';
-//var url = 'http://tilestream.openmangrove.org:8888/api/Tileset/nga_health_dist_pop';
-var url = 'http://tilestream.modilabs.org:8888/api/Tileset/urban_energy_nyc';
-
-
-wax.tilejson(url, function(tilejson) {
-  var m = new mm.Map('intro-map',
-    new wax.mm.connector(tilejson),
-    new mm.Point(1000,700));
-
-  m.setCenterZoom(new mm.Location(tilejson.center[1]+.02,tilejson.center[0]+0.005),13);
-
-  wax.mm.zoomer(m).appendTo(m.parent);
-  wax.mm.legend(m, tilejson).appendTo(m.parent);
-  wax.mm.attribution(m, tilejson).appendTo(m.parent);
-  wax.mm.interaction(m, tilejson);
-  wax.mm.fullscreen(m, tilejson).appendTo(m.parent);
-});
-</script>
-
 <br>
-
 </body>
 </html>
